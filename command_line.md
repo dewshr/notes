@@ -12,14 +12,15 @@ Inline search and replace:
 
     echo "${WORD/SEARCH/REPLACE}"
 
-Transfer files from a remote host to a local machine with progress and compression.
+Transfer files from a remote host to a local machine with progress and compression:
 
     rsync -azP ricardo@192.168.1.81:/home/ricardo/Software/miniconda /home/ravila/Software/
 
-Update conda packages
-
-    conda update --all
-
-Convert markdown to pdf
+Convert markdown to pdf:
 
     pandoc -f markdown Exam_3_cheatsheet.md -o Exam_3_cheatsheet.pdf
+
+Grep PDF files:
+
+    find /path -iname '*.pdf' -exec pdfgrep pattern {} +
+
