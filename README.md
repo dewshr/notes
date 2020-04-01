@@ -1,2 +1,1 @@
-# bash-notes
-Useful BASH one-liners
+# Ricardo's Notebook
