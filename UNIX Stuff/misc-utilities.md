@@ -20,10 +20,10 @@ Examples:
 ls -la | tee output.txt
 
 # 2. redirect output to a file and another command
- ls -la |  tee output1.txt | head 
+ls -la |  tee output1.txt | head 
 
 # 3. redirect output to two different files
- ls -la |  tee output1.txt | awk '{print $1}' > output2.txt
+ls -la |  tee output1.txt | awk '{print $1}' > output2.txt
 
 # It can be useful for creating backup files
 cat myfile.txt | tee myfile.bak | sed...
@@ -38,7 +38,7 @@ Sponge delays a file's modification, by creating a temporary buffer that allows 
 
 For example:
 
-```
+```bash
 cat myfile.txt | awk '{print $1}'> myfile.txt
 ```
 
@@ -46,6 +46,6 @@ does not work, because "myfile.txt" gets overwritten before awk is finished proc
 
 On the other hand, we could use sponge:
 
-```
+```bash
 cat myfile.txt | awk `{print $1}` | sponge > myfile.txt
 ```
