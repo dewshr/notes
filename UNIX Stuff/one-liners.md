@@ -5,6 +5,7 @@
   - [File Transfers](#file-transfers)
   - [System](#system)
   - [Searching / Replacing](#searching--replacing)
+  - [Images](#images)
   - [More PDF Stuff](#more-pdf-stuff)
 
 ## Networking
@@ -25,6 +26,12 @@ Find number of processors:
 
     nproc
 
+Find your private IP address:
+
+```
+python -c "import socket; print(socket.gethostbyname(socket.gethostname()))"
+```
+
 Find your public IP address:
 
     curl ifconfig.io
@@ -43,6 +50,22 @@ Grep PDF files:
 
     find /path -iname '*.pdf' -exec pdfgrep pattern {} +
 
+## Images
+
+Convert format for multiple images:
+
+```bash
+for file in *.jpg; do convert $file ${file/.jpg/.png}; done
+```
+Resize multiple images:
+
+```bash
+for file in *.jpg; do convert -quality  90 -resize 1000x1000 $file $file; done
+```
+OCR an image:
+
+    tesseract my-image output.txt 
+
 ## More PDF Stuff
 
 Convert markdown to pdf:
@@ -50,10 +73,5 @@ Convert markdown to pdf:
     pandoc -f my-notes.md -o my-notes.pdf
 
 OCR:
-```bash
-# Convert to images and run
-tesseract my-image output 
 
-# ...or (using tesseract under the hood):
-ocrmypdf original-document.pdf new-document.pdf
-```
+    ocrmypdf original-document.pdf new-document.pdf
